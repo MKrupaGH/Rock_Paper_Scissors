@@ -1,7 +1,6 @@
-let message = "";
 let playerPoints = 0;
 let computerPoints = 0;
-
+let message = "";
 const choice = ["Paper", "Rock", "Scissors"];
 function computerPlay() {
   compChoice = choice;
@@ -51,14 +50,21 @@ function game() {
   for (let i = 0; i < 5; i++) {
     const computerSelection = computerPlay();
     const playerSelection = prompt("Give me your weapon!", "");
-    console.log(choice.includes(playerSelection));
-    if (!choice.includes(playerSelection)) {
-      i--;
-      continue;
-    }
     playRound(playerSelection, computerSelection);
     console.log(message);
+    console.log(
+      "Your points: " +
+        playerPoints +
+        " // " +
+        " Computer points: " +
+        computerPoints
+    );
   }
+  let scores =
+    playerPoints > computerPoints
+      ? "Congratulation, you WIN"
+      : "Sorry, you LOSE";
+  console.log(scores);
 }
 
 game();
