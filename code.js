@@ -1,6 +1,53 @@
 let playerPoints = 0;
 let computerPoints = 0;
 let message = "";
+
+let buttons = document.querySelectorAll(".btn");
+let h3Text = document.querySelector("#display");
+let h3points = document.querySelector("#points");
+let h3result = document.querySelector("#result");
+let btnRefresh = document.querySelector("#refresh");
+let endScreen = document.querySelector(".endScreen");
+const iconsPht = document.querySelector(".iconsPht");
+
+buttons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    playerChoice = btn.value;
+    const randomComp = computerPlay();
+    playRound(playerChoice, randomComp);
+    h3Text.textContent = message;
+    h3points.textContent =
+      "Player points: " +
+      playerPoints +
+      " // " +
+      " Computer points: " +
+      computerPoints;
+    if (playerPoints === 5) {
+      hide();
+      h3result.textContent = "You win 👏";
+      reloadPage();
+    } else if (computerPoints === 5) {
+      hide();
+      h3result.textContent = "You lost 😔";
+      reloadPage();
+    }
+  });
+});
+
+function hide() {
+  buttons.forEach((btn) => {
+    btn.style.display = "none";
+  });
+}
+
+function reloadPage() {
+  endScreen.style.display = "block";
+  btnRefresh.addEventListener(
+    "click",
+    window.location.reload.bind(window.location)
+  );
+}
+
 const choice = ["Paper", "Rock", "Scissors"];
 function computerPlay() {
   compChoice = choice;
@@ -8,7 +55,6 @@ function computerPlay() {
   //console.log(compChoice);
   return compChoice;
 }
-
 function playRound(playerSelection, computerSelection) {
   playerSelection =
     playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
@@ -46,20 +92,18 @@ function playRound(playerSelection, computerSelection) {
 
 //console.log(playRound(playerSelection,computerSelection));
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    const computerSelection = computerPlay();
-    const playerSelection = prompt("Give me your weapon!", "");
-    playRound(playerSelection, computerSelection);
-    console.log(message);
-    console.log(
-      "Your points: " +
-        playerPoints +
-        " // " +
-        " Computer points: " +
-        computerPoints
-    );
-  }
+/*function game() {
+  const computerSelection = computerPlay();
+  const playerSelection = "rock";
+  playRound(playerSelection, computerSelection);
+  console.log(message);
+  console.log(
+    "Your points: " +
+      playerPoints +
+      " // " +
+      " Computer points: " +
+      computerPoints
+  );
   let scores =
     playerPoints > computerPoints
       ? "Congratulation, you WIN"
@@ -68,3 +112,4 @@ function game() {
 }
 
 game();
+*/
