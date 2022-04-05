@@ -8,11 +8,16 @@ let h3points = document.querySelector("#points");
 let h3result = document.querySelector("#result");
 let btnRefresh = document.querySelector("#refresh");
 let endScreen = document.querySelector(".endScreen");
-const iconsPht = document.querySelector(".iconsPht");
+const playerIcon = document.querySelector(".player-icon");
+const compIcon = document.querySelector(".comp-icon");
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
     playerChoice = btn.value;
+      if (playerChoice == "paper") playerIcon.textContent = "✋";
+      else if (playerChoice == "rock") playerIcon.textContent = "✊";
+      else if (playerChoice == "scissors") playerIcon.textContent = "✌";
+      else playerIcon.textContent = "?";
     const randomComp = computerPlay();
     playRound(playerChoice, randomComp);
     h3Text.textContent = message;
@@ -53,6 +58,10 @@ function computerPlay() {
   compChoice = choice;
   compChoice = compChoice[Math.floor(Math.random() * choice.length)];
   //console.log(compChoice);
+  if (compChoice == "Paper") compIcon.textContent = "✋";
+  else if (compChoice == "Rock") compIcon.textContent = "✊";
+  else if (compChoice == "Scissors") compIcon.textContent = "✌";
+  else compIcon.textContent = "?";
   return compChoice;
 }
 function playRound(playerSelection, computerSelection) {

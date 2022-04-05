@@ -9,25 +9,36 @@
     <title>Paper&Rock&Scissors</title>
 </head>
 <body>
-        <header>
-            <h1>ROCK PAPER SCISSORS</h1>
-        </header>
-        <div class="iconsPht">
-            <div class="icon">✊</div>
-            <div class="icon">✊</div>
-        </div>
-        <div class="buttons">
-            <button class="btn" value="rock"><div class="icon">✊</div></button>
-            <button class="btn" value="paper"><div class="icon">✋</div></button>
-            <button class="btn" value="scissors"><div class="icon">✌</div></button>
-        </div>
-        <div class="text">
-            <h3 id="display"></h3>
-            <h3 id="points"></h3>
-            <h3 id="result"></h3>
-        </div>
-        <div class="endScreen">
-            <button id="refresh">Try again!</button>
+    
+        <div class="mainBox">
+            <header>
+                <h1>ROCK PAPER SCISSORS</h1>
+            </header>
+            <div class="iconsPht">
+                <div class="boxPlayer">
+                    <div class="title-player">Player</div>
+                    <div class="icon player-icon"></div>
+                </div>
+                <div class="boxComp">
+                    <div class="title-player">Computer</div>
+                    <div class="icon comp-icon" ></div>
+                </div>
+                
+            </div>
+            <div class="buttons">
+                <button class="btn" value="rock"><div class="icon">✊</div></button>
+                <button class="btn" value="paper"><div class="icon">✋</div></button>
+                <button class="btn" value="scissors"><div class="icon">✌</div></button>
+            </div>
+            <div class="text">
+                <h3 id="display"></h3>
+                <h3 id="points"></h3>
+            
+            </div>
+            <div class="endScreen">
+                <h3 id="result"></h3>
+                <button id="refresh">Try again!</button>
+            </div>
         </div>
 
     
